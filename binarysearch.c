@@ -2,7 +2,7 @@
 int main()
 {
 	//defining variable
-	int IndexCount,ElementNumber,LowerIndexValue,HighIndexValue,Array[20],SearchNumber,Middle;
+	int IndexCount,ElementNumber,LowerIndexValue,HighIndexValue,Array[50],SearchNumber,Middle;
 	
 	
 	//getting element number
