@@ -1,40 +1,65 @@
 #include <stdio.h>
 int main()
 {
-	int i,n,low,high,a[20],x,mid;
-	printf("enter the number of elements: ");
-	scanf("%d",&n);
+	//defining variable
+	int IndexCount,ElementNumber,LowerIndexValue,HighIndexValue,Array[20],SearchNumber,Middle;
+	
+	
+	//getting element number
+	printf("enter the number of elements: "); 
+	scanf("%d",&ElementNumber);
+	
+	
+	//getting numbers in array
 	printf("enter the values: ");
-	for(i=0;i<n;i++)
+	
+	for(IndexCount=0;IndexCount<ElementNumber;IndexCount++)
 	{
-		scanf("%d",&a[i]);
+		scanf("%d",&Array[IndexCount]);
 	}
-	low = 0;
-	high = n-1;
-	printf("enter the value to be serched: ");
-	scanf("%d",&x);
-	while(low<=high)
+	
+	
+	//seting lower and higher values to use binary serch
+	LowerIndexValue = 0;
+	HighIndexValue = ElementNumber-1;
+	
+	
+	//getting the number to be search
+	printf("enter the value to be searched: ");
+	scanf("%d",&SearchNumber);
+	
+	
+	//finding the number
+	while(LowerIndexValue<=HighIndexValue)
 	{
-		mid=(low+high)/2;
+		Middle=(LowerIndexValue + HighIndexValue)/2;
 		
-		if(x==a[mid])
+		if(SearchNumber==Array[Middle])
 		{
-			printf("the number '%d' is found at index value %d",x,mid);
+			printf("the number '%d' is found at index value %d",SearchNumber,Middle);
 			break;
 		}
-		else if(x<a[mid])
+		
+		else if(SearchNumber < Array[Middle])
 		{
-			high = mid - 1;
+			HighIndexValue = Middle - 1;
 		}
+		
 		else
 		{
-			low = mid + 1;
+			LowerIndexValue = Middle + 1;
 		}
+		
 	}
-	if(low>high)
+	
+	
+	//setting a statement to print if cant find the number
+	if(LowerIndexValue > HighIndexValue)
 	{
-		printf("the number '%d' doesn't exist in this array,sorry!",x);
+		printf("the number '%d' doesn't exist in this array,sorry!",SearchNumber);
 	}
+	
+	
 	return 0;
 }
 	
